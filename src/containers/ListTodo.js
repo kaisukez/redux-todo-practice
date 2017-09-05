@@ -15,16 +15,31 @@ class ListTodo extends Component {
 
     let listToRender = this.props.itemList;
     if(mode === "Active") {
-      listToRender = listToRender.filter(item => !item.isCompleted);
+      listToRender = listToRender.map(item => {
+        if(!item.isCompleted) {
+          return item;
+        } else {
+          return null;
+        }
+      });
     } else if(mode === "Completed") {
-      listToRender = listToRender.filter(item => item.isCompleted);
+      listToRender = listToRender.map(item => {
+        if(item.isCompleted) {
+          return item;
+        } else {
+          return null;
+        }
+      });
     }
 
     return listToRender.map((item, index) => {
       console.log(item);
+      if(!item){
+        return null;
+      }
       return (
         <Todo
-          key={index + item.detail}
+          key={index}
           index={index}
           detail={item.detail}
           isCompleted={item.isCompleted}
