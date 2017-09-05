@@ -1,27 +1,48 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { mouseOver, mouseOut, deleteList, itemClicked } from '../actions/index'
 
 import Todo from '../components/Todo';
 
+
 class ListTodo extends Component {
-  render() {
+  renderList(mode) {
     if(this.props.itemList.length <= 0) {
-      return <div></div>
+      return null;
     }
 
-    console.log("itemList:", this.props.itemList)
+    let listToRender = this.props.itemList;
+    if(mode === "Active") {
+      listToRender = listToRender.filter(item => !item.isCompleted);
+    } else if(mode === "Completed") {
+      listToRender = listToRender.filter(item => item.isCompleted);
+    }
 
+    return listToRender.map((item, index) => {
+      console.log(item);
+      return (
+        <Todo
+          key={index + item.detail}
+          index={index}
+          detail={item.detail}
+          isCompleted={item.isCompleted}
+          isHover={item.mouseHover}
+          mouseOverFunc={this.props.mouseOver}
+          mouseOutFunc={this.props.mouseOut}
+          deleteListFunc={this.props.deleteList}
+          itemClickedFunc={this.props.itemClicked}
+        />
+      )
+    })
+  }
+
+  render() {
+    // console.log("itemList:", this.props.itemList)
     return (
-      <div>
-        {this.props.itemList.map((item, index) => {
-          console.log("item:", item)
-          return (
-            <Todo
-              key={index}
-              detail={item.detail}
-            />
-          )
-        })}
+      <div className="list-group">
+        {this.renderList(this.props.mode)}
       </div>
     )
   }
@@ -30,8 +51,13 @@ class ListTodo extends Component {
 function mapStateToProps(state) {
   return {
     itemList: state.itemList,
-    value: state.value
+    value: state.value,
+    mode: state.mode
   }
 }
 
-export default connect(mapStateToProps)(ListTodo);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ mouseOver, mouseOut, deleteList, itemClicked }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListTodo);

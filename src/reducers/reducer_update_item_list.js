@@ -4,11 +4,13 @@ export default function(state = [], action) {
   switch(action.type) {
     case ENTER_LIST:
       // console.log([...state, {detail: action.detail, isCompleted: false, mouseHover: false}])
-      if(action.detail != "")
+      if(action.detail !== "")
         return [...state, {detail: action.detail, isCompleted: false, mouseHover: false}];
       return state;
 
     case CLEAR_COMPLETED_CLICK:
+      if(state.length === 0)
+        return state;
       return state.filter(item => !item.isCompleted);
 
     case DELETE_LIST:
@@ -23,6 +25,7 @@ export default function(state = [], action) {
             return {detail: item.detail, isCompleted: true, mouseHover: item.mouseHover};
           }
         }
+        return {detail: item.detail, isCompleted: item.isCompleted, mouseHover: item.mouseHover};
       })
 
     case ARROW_CLICKED:
@@ -32,8 +35,7 @@ export default function(state = [], action) {
           isCompleted: false,
           mouseHover: item.mouseHover
         }})
-      }
-      else if(action.nowArrowState){
+      } else {
         return state.map(item => { return {
           detail: item.detail,
           isCompleted: true,
@@ -45,13 +47,17 @@ export default function(state = [], action) {
     case MOUSE_OVER:
       return state.map((item, index) => {
         if(index === action.index)
-            return {detail: item.detail, isCompleted: item.isCompleted, mouseHover: true};
+          return {detail: item.detail, isCompleted: item.isCompleted, mouseHover: true};
+        else
+          return {detail: item.detail, isCompleted: item.isCompleted, mouseHover: item.mouseHover};
       })
 
     case MOUSE_OUT:
       return state.map((item, index) => {
         if(index === action.index)
-            return {detail: item.detail, isCompleted: item.isCompleted, mouseHover: false};
+          return {detail: item.detail, isCompleted: item.isCompleted, mouseHover: false};
+        else
+          return {detail: item.detail, isCompleted: item.isCompleted, mouseHover: item.mouseHover};
       })
 
     default:

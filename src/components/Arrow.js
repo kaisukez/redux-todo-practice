@@ -2,9 +2,17 @@ import React from 'react';
 
 export default (props) => {
   if(props.display) {
-    if(props.isClicked)
-      return <span>arrow clicked </span>;
-    return <span>arrow </span>;
+    let text = "arrowClicked";
+    if(!props.isClicked) {
+      text = "arrow";
+    }
+    return (
+      <button
+        onClick={() => props.arrowClickedFunc(props.isClicked)}
+      >
+        {text}
+      </button>
+    )
   }
-  return <div></div>;
+  return null;
 }

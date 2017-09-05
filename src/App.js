@@ -9,10 +9,10 @@ class App extends Component {
     return (
       <div>
         <div className="container">
-          <h1>Todos</h1>
-          <InputField />
-          <ListTodo />
-          <BottomBar />
+          <h1 id="Header">Todos</h1>
+          <InputField id="InputField" />
+          <ListTodo id="ListTodo" />
+          <BottomBar id="BottomBar" />
         </div>
       </div>
     );

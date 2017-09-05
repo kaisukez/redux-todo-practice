@@ -10,12 +10,16 @@ import TextInput from '../components/TextInput';
 class InputField extends Component {
   render() {
     return (
-      <div>
+      <div id={this.props.id}>
         <Arrow
           isClicked={this.props.isArrowClicked}
+          arrowClickedFunc={this.props.arrowClicked}
           display={this.props.itemList.length < 1 ? false : true}
         />
-        <TextInput enterList={this.props.enterList} />
+        <TextInput
+          id="textInput"
+          enterList={this.props.enterList}
+        />
       </div>
     )
   }
@@ -29,7 +33,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ arrowClicked, enterList}, dispatch)
+  return bindActionCreators({ arrowClicked, enterList }, dispatch)
 }
 
 

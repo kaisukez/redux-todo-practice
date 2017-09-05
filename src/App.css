@@ -1,24 +1,24 @@
-.App {
+div .container {
+  width: 70%;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+#btnDelete {
+
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+#btnDeleteZeroOpacity {
+  opacity: 0;
 }
 
-.App-intro {
-  font-size: large;
+.btn-delete {
+  float: right;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+div.list-group-item {
+  padding: 5px;
+}
+
+#inputField {
+  margin: 500px;
 }
