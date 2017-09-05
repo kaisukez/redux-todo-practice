@@ -16,7 +16,7 @@ export default (props) => {
     >
       <input
         type="checkbox"
-        defaultChecked={props.isCompleted}
+        checked={props.isCompleted}
         onClick={() => props.itemClickedFunc(props.index)}
       />
       <span> {props.detail} </span>

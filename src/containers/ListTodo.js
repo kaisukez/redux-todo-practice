@@ -33,7 +33,7 @@ class ListTodo extends Component {
     }
 
     return listToRender.map((item, index) => {
-      console.log(item);
+      // console.log(item);
       if(!item){
         return null;
       }
