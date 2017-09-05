@@ -6,7 +6,7 @@ import ModeChange from './reducer_mode_change';
 const rootReducer = combineReducers({
   itemList: UpdateItemList,
   arrowState: ArrowStateChange,
-  mode: ModeChange
+  mode: ModeChange,
 });
 
 export default rootReducer;

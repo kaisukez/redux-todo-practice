@@ -4,7 +4,7 @@ export default (props) => {
   return (
     <div>
       <input type="checkbox" />
-      <span>{props.detail}</span>
+      <span> {props.detail}</span>
     </div>
   );
 }

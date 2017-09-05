@@ -3,7 +3,10 @@ import { ENTER_LIST, CLEAR_COMPLETED_CLICK, DELETE_LIST, ITEM_CLICKED, ARROW_CLI
 export default function(state = [], action) {
   switch(action.type) {
     case ENTER_LIST:
-      return [...state, {detail: action.detail, isCompleted: false, mouseHover: false}];
+      // console.log([...state, {detail: action.detail, isCompleted: false, mouseHover: false}])
+      if(action.detail != "")
+        return [...state, {detail: action.detail, isCompleted: false, mouseHover: false}];
+      return state;
 
     case CLEAR_COMPLETED_CLICK:
       return state.filter(item => !item.isCompleted);
