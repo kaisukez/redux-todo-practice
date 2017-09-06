@@ -8,6 +8,8 @@ export default (props) => {
     }
     return (
       <button
+        id="arrow"
+        className="input-group-addon"
         onClick={() => props.arrowClickedFunc(props.isClicked)}
       >
         {text}

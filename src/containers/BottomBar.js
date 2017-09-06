@@ -24,15 +24,34 @@ class BottomBar extends Component {
   bottomBarRender() {
     if(this.bottomBarDisplay()) {
       return (
-        <div>
+        <div
+          id="bottomBar"
+          className="input-group-btn"
+        >
           <ItemTracker
             num={this.props.itemList.filter(item =>
               !item.isCompleted
             ).length}
           />
-          <ModeButtons
-            modeChangeFunc={this.props.modeChange}
-          />
+
+          <button
+            className="btn btn-light input-group-addon btnMode"
+            onClick={() => this.props.modeChange("All")}>
+            All
+          </button>
+
+          <button
+            className="btn btn-light input-group-addon btnMode"
+            onClick={() => this.props.modeChange("Active")}>
+            Active
+          </button>
+
+          <button
+            className="btn btn-light input-group-addon btnMode"
+            onClick={() => this.props.modeChange("Completed")}>
+            Completed
+          </button>
+
           <ClearButton
             display={this.clearButtonDisplay()}
             clearCompletedClickFunc={this.props.clearCompletedClick}

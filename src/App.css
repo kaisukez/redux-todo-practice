@@ -1,5 +1,6 @@
 div .container {
   width: 70%;
+  max-width: 700px;
   text-align: center;
 }
 
@@ -16,9 +17,38 @@ div .container {
 }
 
 div.list-group-item {
-  padding: 5px;
+  padding: 10px;
 }
 
 #inputField {
   margin: 500px;
+}
+
+#Header {
+  text-transform: uppercase;
+}
+
+#arrow {
+  float: left;
+  width: 120px;
+}
+
+#textInput {
+
+}
+
+.listItem {
+
+}
+
+#InputField {
+  margin-bottom: 10px;
+}
+
+#bottomBar {
+  margin-top: 10px;
+}
+
+button.list-group-item.btnMode {
+  margin: 0;
 }

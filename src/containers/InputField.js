@@ -10,7 +10,10 @@ import TextInput from '../components/TextInput';
 class InputField extends Component {
   render() {
     return (
-      <div id={this.props.id}>
+      <div
+        id={this.props.id}
+        className="input-group"
+      >
         <Arrow
           isClicked={this.props.isArrowClicked}
           arrowClickedFunc={this.props.arrowClicked}

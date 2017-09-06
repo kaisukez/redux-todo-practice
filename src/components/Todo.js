@@ -10,7 +10,7 @@ function findBtnDeleteClass(isHover) {
 export default (props) => {
   return (
     <div
-      className="list-group-item"
+      className="list-group-item listItem"
       onMouseOver={() => props.mouseOverFunc(props.index)}
       onMouseOut={() => props.mouseOutFunc(props.index)}
     >
@@ -22,7 +22,7 @@ export default (props) => {
       <span> {props.detail} </span>
       <button
         id={findBtnDeleteClass(props.isHover)}
-        className="btn-delete"
+        className="btn btn-danger btn-delete"
         onClick={() => props.deleteListFunc(props.index)}
       >
         delete
