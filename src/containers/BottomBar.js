@@ -21,6 +21,13 @@ class BottomBar extends Component {
     return true;
   }
 
+  findButtonClass(mode) {
+    if(this.props.mode === mode) {
+      return "btn btn-light btnMode active";
+    }
+    return "btn btn-light btnMode"
+  }
+
   bottomBarRender() {
     if(this.bottomBarDisplay()) {
       return (
@@ -35,19 +42,19 @@ class BottomBar extends Component {
           />
 
           <button
-            className="btn btn-light btnMode"
+            className={this.findButtonClass("All")}
             onClick={() => this.props.modeChange("All")}>
             All
           </button>
 
           <button
-            className="btn btn-light btnMode"
+            className={this.findButtonClass("Active")}
             onClick={() => this.props.modeChange("Active")}>
             Active
           </button>
 
           <button
-            className="btn btn-light btnMode"
+            className={this.findButtonClass("Completed")}
             onClick={() => this.props.modeChange("Completed")}>
             Completed
           </button>
@@ -69,7 +76,8 @@ class BottomBar extends Component {
 
 function mapStateToProps(state) {
   return {
-    itemList: state.itemList
+    itemList: state.itemList,
+    mode: state.mode
   }
 }
 

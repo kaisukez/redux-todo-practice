@@ -63,3 +63,21 @@ button.list-group-item.btnMode {
 .btnMode {
   background: white;
 }
+
+.checkBox {
+  float: left;
+  margin-top: 13px;
+  margin-left: 15px;
+  width: 1em;
+  height: 1em;
+}
+
+.detailList {
+  margin-top: 10px;
+  transition: opacity 0.3s;
+}
+
+.done {
+  text-decoration: line-through;
+  opacity: 0.45;
+}

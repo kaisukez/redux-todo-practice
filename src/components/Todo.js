@@ -7,6 +7,13 @@ function findBtnDeleteClass(isHover) {
   return "btnDeleteZeroOpacity";
 }
 
+function findDetailClass(isCompleted) {
+  if(isCompleted) {
+    return "detailList done";
+  }
+  return "detailList";
+}
+
 export default (props) => {
   return (
     <div
@@ -16,10 +23,15 @@ export default (props) => {
     >
       <input
         type="checkbox"
+        className="checkBox"
         checked={props.isCompleted}
         onClick={() => props.itemClickedFunc(props.index)}
       />
-      <span> {props.detail} </span>
+      <span
+        className={findDetailClass(props.isCompleted)}
+      >
+        {props.detail}
+      </span>
       <button
         id={findBtnDeleteClass(props.isHover)}
         className="btn btn-danger btn-delete"
