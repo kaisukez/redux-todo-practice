@@ -6,14 +6,17 @@ export default (props) => {
     if(!props.isClicked) {
       text = "arrow";
     }
+
     return (
-      <button
-        id="arrow"
-        className="input-group-addon"
-        onClick={() => props.arrowClickedFunc(props.isClicked)}
-      >
-        {text}
-      </button>
+      <div className="input-group-btn">
+        <button
+          id="arrow"
+          className="btn btn-dark"
+          onClick={() => props.arrowClickedFunc(props.isClicked)}
+        >
+          {text}
+        </button>
+      </div>
     )
   }
   return null;

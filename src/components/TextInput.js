@@ -5,6 +5,7 @@ export default (props) => {
     <input
       id="textInput"
       className="form-control"
+      placeholder="What needs to be done?"
       type="text"
       onKeyDown={event => {
         if(event.keyCode === 13) {

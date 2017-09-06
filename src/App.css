@@ -2,6 +2,7 @@ div .container {
   width: 70%;
   max-width: 700px;
   text-align: center;
+  margin-top: 30px;
 }
 
 #btnDelete {
@@ -43,6 +44,7 @@ div.list-group-item {
 
 #InputField {
   margin-bottom: 10px;
+  margin-top: 30px;
 }
 
 #bottomBar {
@@ -51,4 +53,13 @@ div.list-group-item {
 
 button.list-group-item.btnMode {
   margin: 0;
+}
+
+#itemLeft{
+  background: white;
+  width: 50%;
+}
+
+.btnMode {
+  background: white;
 }

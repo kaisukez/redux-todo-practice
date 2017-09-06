@@ -3,7 +3,7 @@ import React from 'react';
 export default (props) => {
   return (
       <button
-        className="btn btn-info input-group-addon"
+        className="btn btn-info"
         onClick={() => props.clearCompletedClickFunc()}
       >
         Clear completed

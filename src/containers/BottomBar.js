@@ -35,19 +35,19 @@ class BottomBar extends Component {
           />
 
           <button
-            className="btn btn-light input-group-addon btnMode"
+            className="btn btn-light btnMode"
             onClick={() => this.props.modeChange("All")}>
             All
           </button>
 
           <button
-            className="btn btn-light input-group-addon btnMode"
+            className="btn btn-light btnMode"
             onClick={() => this.props.modeChange("Active")}>
             Active
           </button>
 
           <button
-            className="btn btn-light input-group-addon btnMode"
+            className="btn btn-light btnMode"
             onClick={() => this.props.modeChange("Completed")}>
             Completed
           </button>
